@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  h1= title
+
+  -
+    let results = [
+      {name: "Steven", astr_sign: "Aries", net_worth: 30}, 
+      {name: "Greg", astr_sign: "Capricorn", net_worth: 140},
+      {name: "Gabriel", astr_sign: "Scorpio", net_worth: 7}
+    ]
+
+  div.container-fluid
+    div.row 
+      each item, index in results 
+        div.col-sm-2(onclick=`buy(${index})`)
+          p Name: #{item.name}
+          p Astrological Sign: #{item.astr_sign}
+          p Net Worth in Dollars: #{item.net_worth}
+  
+  script.
+    function buy(index) {
+      alert (`You purchased item ${index}`)
+    }

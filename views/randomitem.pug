@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  h1= title
+  
+  - let image_names = ['rat1.jpg', 'rat2.jpg', 'rat3.jpg', 'rat4.jpg', 'rat5.jpg'];
+
+  div.container-fluid
+    - for(let i=0; i<3; i++)
+        - let randNum = Math.floor(Math.random()*5);
+        img(src=`/images/${image_names[randNum]}`, alt=`rat picture ${i + 1}`, height="300", width="300")
